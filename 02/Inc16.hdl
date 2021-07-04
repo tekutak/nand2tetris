@@ -14,4 +14,21 @@ CHIP Inc16 {
 
     PARTS:
    // Put you code here:
+//    Not(in=in[0], out=out[0]);
+//     HalfAdder(a=in[1], b=in[0], sum=out[1], carry=car01);
+//     HalfAdder(a=in[2], b=car01, sum=out[2], carry=car02);
+//     HalfAdder(a=in[3], b=car02, sum=out[3], carry=car03);
+//     HalfAdder(a=in[4], b=car03, sum=out[4], carry=car04);
+//     HalfAdder(a=in[5], b=car04, sum=out[5], carry=car05);
+//     HalfAdder(a=in[6], b=car05, sum=out[6], carry=car06);
+//     HalfAdder(a=in[7], b=car06, sum=out[7], carry=car07);
+//     HalfAdder(a=in[8], b=car07, sum=out[8], carry=car08);
+//     HalfAdder(a=in[9], b=car08, sum=out[9], carry=car09);
+//     HalfAdder(a=in[10], b=car09, sum=out[10], carry=car10);
+//     HalfAdder(a=in[11], b=car10, sum=out[11], carry=car11);
+//     HalfAdder(a=in[12], b=car11, sum=out[12], carry=car12);
+//     HalfAdder(a=in[13], b=car12, sum=out[13], carry=car13);
+//     HalfAdder(a=in[14], b=car13, sum=out[14], carry=car14);
+//     HalfAdder(a=in[15], b=car14, sum=out[15], carry=car15);
+    Add16(a=in, b[0]=true, b[1..15]=false, out=out);
 }
