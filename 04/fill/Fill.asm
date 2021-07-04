@@ -12,3 +12,63 @@
 // the screen should remain fully clear as long as no key is pressed.
 
 // Put your code here.
+
+//Set End of address
+@8192
+D=A
+@SCREEN
+D=A+D
+@DRAW_END_ADR
+M=D
+
+(INIT)
+    //Clear count
+    @draw_count
+    M=0
+    //Read KBD
+    @KBD
+    D=M
+    @IF_PUSH
+    D;JGT
+    @ELSE
+    0;JMP
+(IF_PUSH)   //BLACK
+    @col
+    M=-1
+    @ENDIF
+    0;JMP
+(ELSE)  //WHITE
+    @col
+    M=0
+(END_IF)
+
+(DRAW_LOOP)
+    
+    //Calc Address
+    @draw_count
+    D=M
+    @SCREEN
+    D=A+D
+    @adr
+    M=D
+
+    //Check End
+    @DRAW_END_ADR
+    D=M-D
+    @INIT
+    D;JEQ
+    
+    //Load col
+    @col
+    D=M
+
+    //Draw
+    @adr
+    A=M
+    M=D
+        
+    @draw_count
+    M=M+1
+
+    @DRAW_LOOP
+    0;JMP
